@@ -22,4 +22,21 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+<!--ly**********************-->
+
+
+    <!--读取配置文件-->
+    <context:property-placeholder location="classpath:resource/*.properties"/>
+
+    <!--拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="cn.tycoding.controller.HandleInterceptor"></bean>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="cn.tycoding.controller.HandleInterceptor2"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

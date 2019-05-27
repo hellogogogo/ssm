@@ -9,4 +9,9 @@
         select * from tb_user where username = #{username}
     </select>
 
+    <!-- 保存上传文件路径 -->
+    <select id="saveUpload" parameterType="java.lang.String" resultType="object">
+        INSERT INTO upload (id,path) VALUE(NULL,#{path})
+    </select>
+
 </mapper>

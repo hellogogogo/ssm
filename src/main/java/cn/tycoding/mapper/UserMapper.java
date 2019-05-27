@@ -9,4 +9,6 @@ import cn.tycoding.pojo.User;
 public interface UserMapper {
 
     User login(String username);
+
+    void saveUpload(String s);
 }

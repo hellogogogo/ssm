@@ -18,4 +18,7 @@ public interface CustomerService extends BaseService<Customer> {
      */
     PageBean findByPage(Customer customer, int pageCode, int pageSize);
 
+    void sysn01(int i);
+
+    void sysn02(int i);
 }

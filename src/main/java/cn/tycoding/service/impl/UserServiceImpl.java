@@ -26,6 +26,11 @@ public class UserServiceImpl implements UserService {
         return userMapper.login(username);
     }
 
+    @Override
+    public void saveUpload(String s) {
+        userMapper.saveUpload(s);
+    }
+
     public List<User> findAll() {
         return null;
     }

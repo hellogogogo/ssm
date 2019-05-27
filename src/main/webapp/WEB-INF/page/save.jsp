@@ -67,6 +67,22 @@
         <input type="submit" class="btn btn-info text-center"/>
         <input type="reset" class="btn btn-info text-center"/>
     </form>
+
+    <%--上传--%>
+    <form action="<%=basePath%>/load/upload.do" method="post" enctype="multipart/form-data">
+        <center>
+            <input type="file" name="image">
+            <input type="submit" value="提交上传文件">
+        </center>
+        <form>
+            <center>
+                <h2>文件下载</h2>
+                <a href="<%=basePath%>/load/download.do?fileName=GG123.jpg">点击我下载图片</a>
+            </center>
+            <br>
+            <center>
+                <img src="<%=basePath%>/resources/upload/123.jpg">
+            </center>
 </div>
 
 </body>

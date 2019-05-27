@@ -9,4 +9,6 @@ import cn.tycoding.pojo.User;
 public interface UserService extends BaseService<User> {
 
     User login(String username);
+
+    void saveUpload(String s);
 }

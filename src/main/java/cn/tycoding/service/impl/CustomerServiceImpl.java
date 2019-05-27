@@ -7,6 +7,7 @@ import cn.tycoding.service.CustomerService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -99,5 +100,25 @@ public class CustomerServiceImpl implements CustomerService {
 //        return pageBean;
 //    }
 
+    //测试多线程
+    @Async
+    public void sysn01(int i) {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("---------------------我是sysn01"+"***"+i);
+    }
+
+    @Async
+    public void sysn02(int i) {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("---------------------我是sysn02"+"***"+i);
+    }
 
 }
