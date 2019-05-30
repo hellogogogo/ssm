@@ -22,16 +22,16 @@ public class FilterTest implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-//        HttpServletRequest request = (HttpServletRequest)servletRequest;
-//        HttpServletResponse response = (HttpServletResponse)servletResponse;
-//        HttpSession session = request.getSession();
-//        User user = (User)session.getAttribute("currentUser");
-//        String path=request.getServletPath();
-//        if(user==null && (path.indexOf("login")<0)){
-//            response.sendRedirect("/ssm");
-//        }else{
-//            filterChain.doFilter(servletRequest, servletResponse);
-//        }
+        HttpServletRequest request = (HttpServletRequest)servletRequest;
+        HttpServletResponse response = (HttpServletResponse)servletResponse;
+        HttpSession session = request.getSession();
+        User user = (User)session.getAttribute("currentUser");
+        String path=request.getServletPath();
+        if(user==null && (path.indexOf("login")<0)){
+            response.sendRedirect("/ssm");
+        }else{
+            filterChain.doFilter(servletRequest, servletResponse);
+        }
     }
 
     @Override

@@ -1,15 +1,15 @@
 package cn.tycoding.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-public class HandleInterceptor implements HandlerInterceptor {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-    public static Logger log = Logger.getLogger(HandleInterceptor.class.getName());
+public class HandleInterceptor2 implements HandlerInterceptor {
+
+    public static Logger log = Logger.getLogger(HandleInterceptor2.class.getName());
 
     /**
      * 在Handle执行前 执行

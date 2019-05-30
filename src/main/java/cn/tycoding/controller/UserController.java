@@ -1,6 +1,5 @@
 package cn.tycoding.controller;
 
-import cn.tycoding.controller.jwt.JWTUtil;
 import cn.tycoding.pojo.User;
 import cn.tycoding.service.UserService;
 import org.apache.log4j.Logger;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
@@ -40,24 +38,16 @@ public class UserController {
      * 用户登录
      */
     @RequestMapping(value = "/login")
-    public String login(HttpServletRequest request, HttpServletResponse response, @RequestParam String username, @RequestParam String password, Model model) {
+    public String login(HttpServletRequest request, @RequestParam String username, @RequestParam String password, Model model) {
         User user = userService.login(username);
         if (user != null) {
             if (user.getPassword().equals(password)) {
                 logger.info("-----------开始-------------"+shuaige);
                 logger.info("用户"+username+"在"+new Date()+"登录");
                 logger.info("-------------结束-----------");
-
-                //生成token
-                //给用户jwt加密生成token
-                String token = JWTUtil.sign(user, 60);
-                //封装成对象返回给客户端
-//                response.setHeader("token",token);
-                ////只要你在服务器端创建了Session，即使不写addCookie("JSESSIONID", id)，
-                // JSESSIONID仍会被作为Cookie返回
                 HttpSession session = request.getSession();
                 session.setAttribute("currentUser",user);
-                session.setAttribute("token",token);
+                //登录成功
                 return "page/page";
             } else {
                 model.addAttribute("message", "登录失败");
