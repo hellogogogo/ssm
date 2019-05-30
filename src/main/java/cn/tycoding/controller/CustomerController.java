@@ -40,7 +40,7 @@ public class CustomerController {
      */
     @RequestMapping(value = "/toListPage")
     public String toListPage(Model model) {
-        return "redirect:findByPage.do";
+        return "redirect:findByPage";
     }
 
     /**
