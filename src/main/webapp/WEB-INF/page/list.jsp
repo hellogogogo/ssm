@@ -28,8 +28,8 @@
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="<%=basePath%>/customer/toSavePage.do"><strong>添加信息功能</strong></a></li>
-                    <li><a href="<%=basePath%>/customer/toListPage.do"><strong>分页查询功能</strong></a></li>
+                    <li><a href="<%=basePath%>/customer/toSavePage"><strong>添加信息功能</strong></a></li>
+                    <li><a href="<%=basePath%>/customer/toListPage"><strong>分页查询功能</strong></a></li>
                     <li><a>Create by TyCoding</a></li>
                 </ul>
             </div>
@@ -41,7 +41,7 @@
     <h1 class="text-center">客户列表信息页面</h1>
     <hr/>
     <br/>
-    <form class="form-inline" action="<%=basePath%>/customer/findByPage.do" method="post">
+    <form class="form-inline" action="<%=basePath%>/customer/findByPage" method="post">
         <div class="form-group">
             <label>客户姓名：</label>
             <input type="text" class="form-control" name="name"/>
@@ -96,7 +96,7 @@
             </tbody>
         </table>
     </div>
-    <form class="listForm" method="post" action="<%=basePath%>/customer/findByPage.do">
+    <form class="listForm" method="post" action="<%=basePath%>/customer/findByPage">
         <div class="row">
             <div class="form-inline">
                 <label style="font-size:14px;margin-top:22px;">
@@ -131,11 +131,11 @@
 
                 <ul class="pagination" style="float:right;">
                     <li>
-                        <a href="<%=basePath%>/customer/findByPage.do?pageCode=1"><strong>首页</strong></a>
+                        <a href="<%=basePath%>/customer/findByPage?pageCode=1"><strong>首页</strong></a>
                     </li>
                     <li>
                         <c:if test="${requestScope.page.pageCode > 2}">
-                            <a href="<%=basePath%>/customer/findByPage.do?pageCode=${requestScope.page.pageCode - 1}">&laquo;</a>
+                            <a href="<%=basePath%>/customer/findByPage?pageCode=${requestScope.page.pageCode - 1}">&laquo;</a>
                         </c:if>
                     </li>
 
@@ -171,18 +171,18 @@
                         </c:if>
                         <c:if test="${i != requestScope.page.pageCode}">
                             <li>
-                                <a href="<%=basePath%>/customer/findByPage.do?pageCode=${i}&pageSize=${requestScope.page.pageSize}">${i}</a>
+                                <a href="<%=basePath%>/customer/findByPage?pageCode=${i}&pageSize=${requestScope.page.pageSize}">${i}</a>
                             </li>
                         </c:if>
                     </c:forEach>
 
                     <li>
                         <c:if test="${requestScope.page.pageCode < requestScope.page.totalPage}">
-                            <a href="<%=basePath%>/customer/findByPage.do?pageCode=${requestScope.page.pageCode + 1}">&raquo;</a>
+                            <a href="<%=basePath%>/customer/findByPage?pageCode=${requestScope.page.pageCode + 1}">&raquo;</a>
                         </c:if>
                     </li>
                     <li>
-                        <a href="<%=basePath%>/customer/findByPage.do?pageCode=${requestScope.page.totalPage}"><strong>末页</strong></a>
+                        <a href="<%=basePath%>/customer/findByPage?pageCode=${requestScope.page.totalPage}"><strong>末页</strong></a>
                     </li>
                 </ul>
             </div>
@@ -213,7 +213,7 @@
     </div>
 
     <!-- 编辑的模态框 -->
-    <form class="form-horizontal" role="form" method="post" action="<%=basePath%>/customer/update.do"
+    <form class="form-horizontal" role="form" method="post" action="<%=basePath%>/customer/update"
           id="form_edit">
         <div class="modal fade" id="editModal" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
@@ -268,7 +268,7 @@
         } else {
             $(".delSure").click(function () {
                 $.ajax({
-                    url: '<%=basePath%>/customer/delete.do?id=' + id,
+                    url: '<%=basePath%>/customer/delete?id=' + id,
                     type: 'POST',
                     success: function (data) {
                         $("body").html(data);
@@ -286,7 +286,7 @@
         } else {
             // 先去查询数据
             $.ajax({
-                url: '<%=basePath%>/customer/findById.do',
+                url: '<%=basePath%>/customer/findById',
                 type: 'POST',
                 dataType: 'json',
                 contentType: 'application/json;charset=UTF-8',

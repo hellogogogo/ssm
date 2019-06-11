@@ -1,9 +1,6 @@
 package cn.tycoding.controller;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 
 import cn.tycoding.controller.jwt.JWTUtil;
 import cn.tycoding.pojo.User;
@@ -25,24 +22,32 @@ public class HandleInterceptor implements HandlerInterceptor {
 //        log.info("HandleInterceptor1 ...... preHandle");
         response.setCharacterEncoding("utf-8");
         Cookie[] cookies = request.getCookies();
-//        if(null != token) {
-//            User user = JWTUtil.unsign(token, User.class);
-//            if(null != loginId && null != user) {
-//                if(Integer.parseInt(loginId) == user.getId()) {
-//                    return true;
-//                } else {
-//                    response.sendRedirect("/ssm");
-//                    return false;
-//                }
-//            } else {
-//                response.sendRedirect("/ssm");
-//                return false;
-//            }
-//        } else {
-//            response.sendRedirect("/ssm");
-//            return false;
-//        }
-        return true;
+        Cookie cookie = cookies[0];
+        String sessionId = cookie.getValue();
+//        String sessionId = "EE43F235FCC5998C4DA0F62DE87087C9";
+        if(null != sessionId) {
+            HttpSession session = request.getSession();
+            if(sessionId.equals(session.getId())){//session相等
+                try {
+                    User user = JWTUtil.unsign(session.getAttribute("token").toString(), User.class);
+                    if(user !=null){
+                        return true;
+                    }else{
+                        response.sendRedirect("/ssm");
+                        return false;
+                    }
+                }catch (Exception e){//解密失败
+                    response.sendRedirect("/ssm");
+                    return false;
+                }
+            }else {
+                response.sendRedirect("/ssm");
+                return false;
+            }
+        } else {
+            response.sendRedirect("/ssm");
+            return false;
+        }
     }
 
     /**

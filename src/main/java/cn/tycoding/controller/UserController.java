@@ -50,7 +50,7 @@ public class UserController {
 
                 //生成token
                 //给用户jwt加密生成token
-                String token = JWTUtil.sign(user, 60);
+                String token = JWTUtil.sign(user, 1000*60*10);
                 //封装成对象返回给客户端
 //                response.setHeader("token",token);
                 ////只要你在服务器端创建了Session，即使不写addCookie("JSESSIONID", id)，

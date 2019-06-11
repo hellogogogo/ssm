@@ -8,13 +8,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<%=basePath%>/lib/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"  href="<%=basePath%>/lib/bootstrap.min.css"/>
     <title>首页</title>
 <html>
 <body>
 <h2 class="text-center">SSM框架整合（分页查询）案例</h2>
 <hr/>
-<form action="<%=basePath%>/user/login.do" method="post" class="form-inline text-center">
+<form action="<%=basePath%>/user/login" method="post" class="form-inline text-center">
     <label>username:</label>
     <input type="text" class="form-control" name="username"/>
     <br/>

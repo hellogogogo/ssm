@@ -36,7 +36,7 @@
             <mvc:mapping path="/**" />
             <!-- /register 和 /login 不需要拦截-->
             <mvc:exclude-mapping path="/register" />
-            <mvc:exclude-mapping path="login" />
+            <mvc:exclude-mapping path="/user/login" />
             <bean class="cn.tycoding.controller.HandleInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

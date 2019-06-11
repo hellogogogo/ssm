@@ -26,8 +26,8 @@
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="<%=basePath%>/customer/toSavePage.do"><strong>添加信息功能</strong></a></li>
-                    <li><a href="<%=basePath%>/customer/toListPage.do"><strong>分页查询功能</strong></a></li>
+                    <li><a href="<%=basePath%>/customer/toSavePage"><strong>添加信息功能</strong></a></li>
+                    <li><a href="<%=basePath%>/customer/toListPage"><strong>分页查询功能</strong></a></li>
                     <li><a>Create by TyCoding</a></li>
                 </ul>
             </div>
@@ -38,7 +38,7 @@
     <h1 class="text-center">客户信息添加页面</h1>
     <hr/>
     <br/>
-    <form class="form-inline text-center" action="<%=basePath%>/customer/save.do" method="post">
+    <form class="form-inline text-center" action="<%=basePath%>/customer/save" method="post">
         <div class="form-group form-inline">
             <label>客户姓名：</label>
             <input type="text" name="name" class="form-control"/>
@@ -69,7 +69,7 @@
     </form>
 
     <%--上传--%>
-    <form action="<%=basePath%>/load/upload.do" method="post" enctype="multipart/form-data">
+    <form action="<%=basePath%>/load/upload" method="post" enctype="multipart/form-data">
         <center>
             <input type="file" name="image">
             <input type="submit" value="提交上传文件">
@@ -77,7 +77,7 @@
         <form>
             <center>
                 <h2>文件下载</h2>
-                <a href="<%=basePath%>/load/download.do?fileName=GG123.jpg">点击我下载图片</a>
+                <a href="<%=basePath%>/load/download?fileName=GG123.jpg">点击我下载图片</a>
             </center>
             <br>
             <center>

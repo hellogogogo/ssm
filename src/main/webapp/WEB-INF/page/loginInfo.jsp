@@ -24,7 +24,7 @@
 <center><h2>${message}</h2></center>
 <br/>
 <center>
-    <a href="<%=basePath%>/user/index.do">
+    <a href="<%=basePath%>/user/index">
         <button type="button" class="btn btn-primary btn-lg">点击我返回登录</button>
     </a>
 </center>
