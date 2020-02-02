@@ -26,3 +26,21 @@ insert into tb_customer values(4,'咸鱼','123456789','你猜','不想写备注'
 insert into tb_customer values(5,'小白','123456789','你猜','不想写备注');
 insert into tb_customer values(6,'菜鸡','123456789','你猜','不想写备注');
 
+CREATE TABLE `logs1` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `logtype` VARCHAR(255) DEFAULT NULL,
+  `logurl` VARCHAR(255) DEFAULT NULL,
+  `logip` VARCHAR(255) DEFAULT NULL,
+  `logdz` VARCHAR(255) DEFAULT NULL,
+  `ladduser` VARCHAR(255) DEFAULT NULL,
+  `lfadduser` VARCHAR(255) DEFAULT NULL,
+  `laddtime` DATETIME DEFAULT NULL,
+  `htmlname` VARCHAR(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MYISAM  AUTO_INCREMENT=1811 DEFAULT CHARSET=utf8 COMMENT='日志表';
+
+CREATE TABLE `upload` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `path` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`,`path`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

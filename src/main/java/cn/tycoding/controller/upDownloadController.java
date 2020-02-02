@@ -1,9 +1,7 @@
 package cn.tycoding.controller;
 
-import cn.tycoding.pojo.User;
 import cn.tycoding.service.UserService;
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -12,14 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
 
 /**
  * 用户的控制层
@@ -38,7 +33,7 @@ public class upDownloadController {
      * 上传
      */
     @RequestMapping(value = "/upload")
-    public String login(MultipartFile image, HttpServletRequest request, Model model) {
+    public Object login(MultipartFile image, HttpServletRequest request, Model model) {
         //获取文件在服务器上的储存位置
         String path = request.getSession().getServletContext().getRealPath("resources/upload");
         File filePath = new File(path);
@@ -60,13 +55,13 @@ public class upDownloadController {
         String fileName = System.currentTimeMillis() + "." + type;
         System.out.println("文件新名称：" + fileName);
         //在指定路径创建一个文件
-        File targetFile = new File(path, originalFileName);
+        File targetFile = new File(path, fileName);
 
         //将文件保存到服务器指定位置
         try {
             image.transferTo(targetFile);
             model.addAttribute("message", "保存数据成功");
-            userService.saveUpload("resources/upload/" + originalFileName);
+            userService.saveUpload("resources/upload/" + fileName);
             return "index";
         } catch (IOException e) {
             System.out.println("保存文件错误...");
@@ -82,7 +77,7 @@ public class upDownloadController {
     public ResponseEntity<byte[]> download(HttpServletRequest request, String fileName) throws Exception {
         try {
             //下载路径
-            String path = request.getServletContext().getRealPath("/WEB-INF/");
+            String path = request.getServletContext().getRealPath("resources/upload");
 
             File file = new File(path + File.separator + fileName);
             HttpHeaders headers = new HttpHeaders();
