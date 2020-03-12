@@ -77,7 +77,7 @@ public class upDownloadController {
     public ResponseEntity<byte[]> download(HttpServletRequest request, String fileName) throws Exception {
         try {
             //下载路径
-            String path = request.getServletContext().getRealPath("resources/upload");
+            String path = request.getServletContext().getRealPath("/WEB-INF/upload");
 
             File file = new File(path + File.separator + fileName);
             HttpHeaders headers = new HttpHeaders();

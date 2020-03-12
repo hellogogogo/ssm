@@ -81,8 +81,20 @@
             </center>
             <br>
             <center>
-                <img src="<%=basePath%>/resources/upload/123.jpg">
+                <img src="<%=basePath%>/resources/upload/GG123.jpg">
             </center>
+            <center>
+                <div>
+                    <a href="<%=basePath%>/Redis/insert?key=time&value=2020年3月8日00:06:18">插入缓存</a>
+                </div>
+                <div>
+                    <a href="<%=basePath%>/Redis/insert?key='time'">删除缓存</a>
+                </div>
+                <div>
+                    <a href="<%=basePath%>/Redis/insert?key='time'">查询缓存</a>
+                </div>
+            </center>
+
 </div>
 
 </body>
