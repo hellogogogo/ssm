@@ -11,4 +11,8 @@ public interface UserMapper {
     User login(String username);
 
     void saveUpload(String s);
+
+    void updateLoad(String s);
+
+    String getUpLoad(String s);
 }

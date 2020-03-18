@@ -88,10 +88,19 @@
                     <a href="<%=basePath%>/Redis/insert?key=time&value=2020年3月8日00:06:18">插入缓存</a>
                 </div>
                 <div>
-                    <a href="<%=basePath%>/Redis/insert?key='time'">删除缓存</a>
+                    <a href="<%=basePath%>/Redis/delete?key=time">删除缓存</a>
                 </div>
                 <div>
-                    <a href="<%=basePath%>/Redis/insert?key='time'">查询缓存</a>
+                    <a href="<%=basePath%>/Redis/query?key=time">查询缓存11</a>
+                </div>
+            </center>
+            <br>
+            <center>
+                <div>
+                    <a href="<%=basePath%>/sync/test?s=yes">并发测试1</a>
+                </div>
+                <div>
+                    <a href="<%=basePath%>/sync/test?s=no">并发测试2</a>
                 </div>
             </center>
 

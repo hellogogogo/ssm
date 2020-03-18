@@ -9,9 +9,20 @@
         select * from tb_user where username = #{username}
     </select>
 
-    <!-- 保存上传文件路径 -->
-    <select id="saveUpload" parameterType="java.lang.String" resultType="object">
-        INSERT INTO upload (id,path) VALUE(NULL,#{path})
+
+    <!-- 查询上传文件路径 -->
+    <select id="getUpLoad" parameterType="Object" resultType="Object">
+        select path from upload where id = #{id}
     </select>
+
+    <!-- 保存上传文件路径 -->
+    <insert id="saveUpload" parameterType="java.lang.String" >
+        INSERT INTO upload (id,path) VALUE(NULL,#{path})
+    </insert>
+
+    <!-- 更改文件路径 -->
+    <update id="updateLoad" parameterType="java.lang.String" >
+        update upload set path = #{s} where id = 6
+    </update>
 
 </mapper>
