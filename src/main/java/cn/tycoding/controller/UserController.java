@@ -47,7 +47,6 @@ public class UserController {
                 logger.info("-----------开始-------------"+shuaige);
                 logger.info("用户"+username+"在"+new Date()+"登录");
                 logger.info("-------------结束-----------");
-
                 //生成token
                 //给用户jwt加密生成token
                 String token = JWTUtil.sign(user, 1000*60*10);
@@ -75,5 +74,57 @@ public class UserController {
     @RequestMapping(value="/index")
     public String index(){
         return "index";
+    }
+
+
+    public static String getIp(HttpServletRequest request) {
+
+//代理进来，则透过防火墙获取真实IP地址
+
+        String ip = request.getHeader("X-Forwarded-For");
+
+
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+
+            ip = request.getHeader("Proxy-Client-IP");
+
+        }
+
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+
+            ip = request.getHeader("WL-Proxy-Client-IP");
+
+        }
+
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+
+            ip = request.getHeader("HTTP_CLIENT_IP");
+
+        }
+
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+
+            ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+
+        }
+
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+
+            ip = request.getHeader("X-Real-IP");
+
+        }
+
+
+//如果没有代理，则获取真实ip
+
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+
+            ip = request.getRemoteAddr();
+
+        }
+
+
+        return ip.equals("0:0:0:0:0:0:0:1") ? "127.0.0.1" : ip;
+
     }
 }

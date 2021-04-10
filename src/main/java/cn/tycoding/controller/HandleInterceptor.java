@@ -19,6 +19,8 @@ public class HandleInterceptor implements HandlerInterceptor {
      */
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
+        String aaa = UserController.getIp(request);
+        String bbb = request.getServerName();
 //        log.info("HandleInterceptor1 ...... preHandle");
         response.setCharacterEncoding("utf-8");
         Cookie[] cookies = request.getCookies();

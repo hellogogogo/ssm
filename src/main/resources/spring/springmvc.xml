@@ -26,7 +26,7 @@
 
 
     <!--读取配置文件-->
-    <context:property-placeholder location="classpath:resource/*.properties"/>
+<!--    <context:property-placeholder location="classpath:resource/*.properties"/>-->
 
     <!--拦截器-->
     <!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 -->

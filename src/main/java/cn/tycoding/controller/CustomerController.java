@@ -31,7 +31,12 @@ public class CustomerController {
      * 跳转到添加客户功能页面
      */
     @RequestMapping("/toSavePage")
-    public String toSavePage() {
+    public String toSavePage() throws InterruptedException {
+        System.out.println(System.currentTimeMillis());
+        for(int i=0;i<1000;i++){
+            System.out.println(Thread.currentThread().getName()+":第"+i+"次休眠，时间300s");
+            Thread.sleep(300000);
+        }
         return "page/save";
     }
 
