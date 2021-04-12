@@ -10,6 +10,16 @@
 
     <build>
         <finalName>ssm</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
         <resources>
             <resource>
                 <directory>${basedir}/src/main/java</directory>
@@ -227,6 +237,15 @@
             <artifactId>shiro-spring</artifactId>
             <version>1.2.3</version>
         </dependency>
+
+
+<!--导出word-->
+        <dependency>
+            <groupId>com.github.kmood</groupId>
+            <artifactId>officeexport-java</artifactId>
+            <version>1.0.1.6-RELEASE</version>
+        </dependency>
+
 
 
     </dependencies>

@@ -28,6 +28,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="<%=basePath%>/customer/toSavePage"><strong>添加信息功能</strong></a></li>
                     <li><a href="<%=basePath%>/customer/toListPage"><strong>分页查询功能</strong></a></li>
+                    <li><a href="<%=basePath%>/pdfExport"><strong>导出word</strong></a></li>
                     <li><a>Create by TyCoding</a></li>
                 </ul>
             </div>

@@ -1,6 +1,8 @@
 package cn.tycoding.controller;
 
 import cn.tycoding.service.IExcelExportService;
+import cn.tycoding.util.CommonUtil;
+import com.kmood.datahandle.DocumentProducer;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -11,10 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * 用户的控制层
@@ -102,5 +105,53 @@ public class ExcelExportController {
             long endTime = System.currentTimeMillis();
             System.out.println("导出" + baseList.size() + "行，总时间:" + (endTime - startTime)/1000+"秒");
         }
+    }
+
+
+    /**
+     * 导出pdf
+     */
+    @RequestMapping(value = "/pdfExport")
+    public void pdfExport(HttpServletRequest request, HttpServletResponse response)  {
+        OutputStream out = null;
+        try {
+            //设置下载
+            response.setContentType("application/octet-stream");
+            response.setHeader("Content-Disposition", "attachment;filename=" + java.net.URLEncoder.encode("测试导出", "UTF-8")+".pdf");
+            out = response.getOutputStream();
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            this.testModel(bos);
+            byte[] aaa = bos.toByteArray();
+
+            ByteArrayInputStream bis = new ByteArrayInputStream(aaa);
+            CommonUtil.doc2pdf(bis,out);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if(out !=null){
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+    }
+
+    public void testModel(ByteArrayOutputStream bos) throws Exception {
+        ClassLoader classLoader = ExcelExportController.class.getClassLoader();
+        String ActualModelPath = classLoader.getResource("").toURI().getPath()+"template";
+        String xmlPath = ActualModelPath;
+        String ExportFilePath = classLoader.getResource("").toURI().getPath() + "test.docx";
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("test1", "测试11111");
+        map.put("test2", "测试22222");
+
+        DocumentProducer dp = new DocumentProducer(ActualModelPath);
+        String complie = dp.Complie(xmlPath, "test.xml", true);
+//        dp.produce(map, ExportFilePath);
+        dp.produce(map, bos);
     }
 }
