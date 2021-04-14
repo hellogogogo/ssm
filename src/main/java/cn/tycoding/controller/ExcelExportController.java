@@ -127,7 +127,7 @@ public class ExcelExportController {
             this.testModel(bos);
             ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
             //设置一个字体目录
-            FontSettings.setFontsFolder("/usr/local/software/windowsFont/windowsFont", false);
+            FontSettings.setFontsFolder("/usr/local/software/windowsFont", false);
             CommonUtil.doc2pdf(bis,out);
         }catch (Exception e){
             e.printStackTrace();
