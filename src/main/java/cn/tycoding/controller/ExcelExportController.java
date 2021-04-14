@@ -2,6 +2,7 @@ package cn.tycoding.controller;
 
 import cn.tycoding.service.IExcelExportService;
 import cn.tycoding.util.CommonUtil;
+import com.aspose.words.FontSettings;
 import com.kmood.datahandle.DocumentProducer;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -17,7 +18,10 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * 用户的控制层
@@ -121,9 +125,9 @@ public class ExcelExportController {
             out = response.getOutputStream();
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
             this.testModel(bos);
-            byte[] aaa = bos.toByteArray();
-
-            ByteArrayInputStream bis = new ByteArrayInputStream(aaa);
+            ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+            //设置一个字体目录
+            FontSettings.setFontsFolder("/usr/local/software/windowsFont/windowsFont", false);
             CommonUtil.doc2pdf(bis,out);
         }catch (Exception e){
             e.printStackTrace();
