@@ -246,8 +246,35 @@
             <version>1.0.1.6-RELEASE</version>
         </dependency>
 
+        <!--word转pdf-->
+        <dependency>
+            <groupId>com.ly</groupId>
+            <artifactId>aspose-words</artifactId>
+            <version>15.8.0-jdk16</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/template/aspose-words-15.8.0-jdk16.jar</systemPath>
+        </dependency>
 
 
     </dependencies>
+
+
+    <reporting>
+        <!--true，则，网站不包括默认的报表。这包括"项目信息"菜单中的报表。 -->
+        <excludeDefaults />
+        <!--所有产生的报表存放到哪里。默认值是${project.build.directory}/site。 -->
+        <outputDirectory />
+        <!--使用的报表插件和他们的配置。 -->
+        <plugins>
+            <!--plugin元素包含描述报表插件需要的信息 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 
 </project>
