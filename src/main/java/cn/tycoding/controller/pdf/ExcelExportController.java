@@ -127,7 +127,7 @@ public class ExcelExportController {
             String classPath = this.getClass().getClassLoader().getResource("").toURI().getPath();
             //设置一个字体目录 TODO
 //            FontSettings.setFontsFolder("/usr/local/software/windowsFont", false);
-            FontSettings.setFontsFolder(classPath+"/template/font", false);
+            FontSettings.setFontsFolder(classPath+"/exportTemplate/font", false);
             CommonUtil.doc2pdf(bis,out);
         }catch (Exception e){
             e.printStackTrace();
@@ -184,7 +184,7 @@ public class ExcelExportController {
 //            } catch (IOException e) {
 //                throw new Exception("失败" + e);
 //            }
-            String fontPath = classPath + "/font/Alibaba-PuHuiTi-Regular.otf";
+            String fontPath = templatePath + "/font/Alibaba-PuHuiTi-Regular.otf";
             Itext7Generator itext7 = Itext7Generator.getInstanse(fontPath);
             //输出到服务器路径
             itext7.generatePdf(dataHtml, out);
