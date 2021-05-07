@@ -1,0 +1,154 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Style-Type" content="text/css"/>
+    <meta name="generator" content="Aspose.Words for .NET 15.1.0.0"/>
+    <title></title></head>
+<body>
+<div><p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+        style="font-family:宋体; font-size:14pt">出租屋排查报告</span></p>
+    <table cellspacing="0" cellpadding="0" style="border-collapse:collapse; margin:15px auto">
+        <tr style="height:19.85pt">
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:159.05pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">姓名：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${owner!}</span></p></td>
+            <td colspan="2"
+                style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:234.15pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">出租屋评分评级：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${grade!}-${score!}</span></p></td>
+        </tr>
+        <tr style="height:19.85pt">
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:159.05pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">证件类型：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${idTypeName!}</span></p></td>
+            <td colspan="2"
+                style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:234.15pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">证件号码：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${idNum!}</span></p></td>
+        </tr>
+        <tr style="height:87.6pt">
+            <td colspan="3"
+                style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:404pt">
+                <p style="margin:0pt; orphans:0; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt; font-weight:bold">房产证照片</span>
+                    <span style="font-family:宋体; font-size:10.5pt; font-weight:normal"> </span>
+                    <#list pictureList as picture>
+                        <img src=${picture!} width="155" height="80" alt="1617353183(1)" style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline"/>
+                    </#list>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:19.85pt">
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:159.05pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">村居：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${villageName!}</span></p></td>
+            <td colspan="2"
+                style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:234.15pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">地址：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${address!}</span></p></td>
+        </tr>
+        <tr style="height:19.85pt">
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:159.05pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">权属人：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${right!}</span></p></td>
+            <td colspan="2"
+                style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:234.15pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">联系电话：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${phone!}</span></p></td>
+        </tr>
+        <tr style="height:19.85pt">
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:159.05pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">排查人员姓名：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${checker!}</span></p></td>
+            <td colspan="2"
+                style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:234.15pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">排查时间：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${checkTime!}</span></p></td>
+        </tr>
+        <tr style="height:19.85pt">
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:159.05pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">出租屋办证情况：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${certificateName!}</span></p></td>
+            <td colspan="2"
+                style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:234.15pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">房数：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${roomCount!} </span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">间</span></p></td>
+        </tr>
+        <tr style="height:19.85pt">
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:159.05pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">人数：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${personCount!}</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal"> </span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">人</span></p></td>
+            <td colspan="2"
+                style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:234.15pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">结构：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${structure!}</span></p></td>
+        </tr>
+        <tr style="height:19.85pt">
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:159.05pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">建筑面积：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${constructionArea!}</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal"> m²</span></p></td>
+            <td colspan="2"
+                style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:234.15pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">租用面积：</span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${rentedArea!} </span><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">m²</span></p></td>
+        </tr>
+        <tr style="height:19.85pt">
+            <td colspan="3"
+                style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:404pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:bold">消防安全内容</span></p></td>
+        </tr>
+
+        <#if table?exists>
+            <#list table as tableItem>
+        <tr style="height:19.85pt">
+            <td colspan="2"
+                style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:322.1pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt; font-weight:normal">${(tableItem.questionTitle)!}</span>
+                </p></td>
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:71.1pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                        style="font-family:宋体; font-size:10.5pt">${(tableItem.answer)!} ${(tableItem.score)!}</span></p></td>
+        </tr>
+            </#list>
+        </#if>
+
+
+
+
+
+
+
+<tr style="height:0pt">
+    <td style="width:161.35pt; border:none"></td>
+    <td style="width:146.2pt; border:none"></td>
+    <td style="width:107.75pt; border:none"></td>
+</tr>
+</table>
+<p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+        style="font-family:宋体; font-size:10.5pt">&#xa0;</span></p></div>
+
+</body>
+</html>
