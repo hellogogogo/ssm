@@ -24,32 +24,32 @@ public class HandleInterceptor implements HandlerInterceptor {
 //        log.info("HandleInterceptor1 ...... preHandle");
         response.setCharacterEncoding("utf-8");
         Cookie[] cookies = request.getCookies();
-        Cookie cookie = cookies[0];
-        String sessionId = cookie.getValue();
-//        String sessionId = "EE43F235FCC5998C4DA0F62DE87087C9";
-        if(null != sessionId) {
-            HttpSession session = request.getSession();
-            if(sessionId.equals(session.getId())){//session相等
-                try {
-                    User user = JWTUtil.unsign(session.getAttribute("token").toString(), User.class);
-                    if(user !=null){
-                        return true;
-                    }else{
-                        response.sendRedirect("/ssm");
-                        return false;
-                    }
-                }catch (Exception e){//解密失败
-                    response.sendRedirect("/ssm");
-                    return false;
-                }
-            }else {
-                response.sendRedirect("/ssm");
-                return false;
-            }
-        } else {
-            response.sendRedirect("/ssm");
-            return false;
-        }
+        return true;
+//        Cookie cookie = cookies[0];
+//        String sessionId = cookie.getValue();
+//        if(null != sessionId) {
+//            HttpSession session = request.getSession();
+//            if(sessionId.equals(session.getId())){//session相等
+//                try {
+//                    User user = JWTUtil.unsign(session.getAttribute("token").toString(), User.class);
+//                    if(user !=null){
+//                        return true;
+//                    }else{
+//                        response.sendRedirect("/ssm");
+//                        return false;
+//                    }
+//                }catch (Exception e){//解密失败
+//                    response.sendRedirect("/ssm");
+//                    return false;
+//                }
+//            }else {
+//                response.sendRedirect("/ssm");
+//                return false;
+//            }
+//        } else {
+//            response.sendRedirect("/ssm");
+//            return false;
+//        }
     }
 
     /**
@@ -57,7 +57,7 @@ public class HandleInterceptor implements HandlerInterceptor {
      */
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
-        log.info("HandleInterceptor1 ...... postHandle");
+//        log.info("HandleInterceptor1 ...... postHandle");
 
     }
 
@@ -66,7 +66,7 @@ public class HandleInterceptor implements HandlerInterceptor {
      */
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
             throws Exception {
-        log.info("HandleInterceptor1 ...... afterCompletion");
+//        log.info("HandleInterceptor1 ...... afterCompletion");
     }
 
 }
