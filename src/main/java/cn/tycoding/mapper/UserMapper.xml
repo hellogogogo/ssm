@@ -13,5 +13,12 @@
     <select id="saveUpload" parameterType="java.lang.String" resultType="object">
         INSERT INTO upload (id,path) VALUE(NULL,#{path})
     </select>
+    <select id="findAll" resultType="cn.tycoding.pojo.User">
+        select * from tb_user where id = 2
+    </select>
+    <update id="updateForBalance">
+        update tb_user set balance = balance + #{balance},version = version +1 where id =2 and version = #{version}
+    </update>
+
 
 </mapper>

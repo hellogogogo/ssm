@@ -2,7 +2,9 @@ package cn.tycoding.controller.pdf;
 
 import cn.tycoding.controller.pdf.ItextExportPDF.FreemarkerUtils;
 import cn.tycoding.controller.pdf.ItextExportPDF.Itext7Generator;
+import cn.tycoding.pojo.User;
 import cn.tycoding.service.IExcelExportService;
+import cn.tycoding.service.UserService;
 import cn.tycoding.util.CommonUtil;
 import com.alibaba.fastjson.JSON;
 import com.aspose.words.FontSettings;
@@ -15,9 +17,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -32,6 +36,8 @@ public class ExcelExportController {
     //注入service
     @Autowired
     private IExcelExportService excelExportService;
+    @Resource
+    private UserService userService;
 
     /**
      * 导出excel
@@ -199,4 +205,25 @@ public class ExcelExportController {
             }
         }
     }
+
+
+    /**
+     * 测试并发
+     */
+    @RequestMapping(value = "/concurrency")
+    public void concurrency(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        System.out.println("查询余额:"+Thread.currentThread().getName());
+        User user = userService.findAll().get(0);
+        if(user.getBalance().compareTo(new BigDecimal("100")) == 0 ){
+            System.out.println("开始充值");
+            if(userService.updateForBalance(user) >0 ){
+                System.out.println("充值成功");
+            }else{
+                System.out.println("已经充值，此次充值无效！");
+            }
+        }else{
+            System.out.println("已经充值，请勿重复操作");
+        }
+    }
+
 }

@@ -1,12 +1,16 @@
 package cn.tycoding.pojo;
 
+import lombok.Data;
+
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * 这是用户登录的JavaBean
  * @author tycoding
  * @date 18-4-7下午7:28
  */
+@Data
 public class User implements Serializable {
 
     //用户id
@@ -16,27 +20,10 @@ public class User implements Serializable {
     //用户密码
     private String password;
 
-    public Long getId() {
-        return id;
-    }
+    //余额
+    private BigDecimal balance;
+    //乐观锁版本号 默认0
+    private Integer version;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

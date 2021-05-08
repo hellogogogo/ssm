@@ -30,6 +30,7 @@
                     <li><a href="<%=basePath%>/customer/toListPage"><strong>分页查询功能</strong></a></li>
                     <li><a href="<%=basePath%>/pdfExport"><strong>导出word(aspose-words)</strong></a></li>
                     <li><a href="<%=basePath%>/pdfExportByItext7"><strong>导出word(iText7)</strong></a></li>
+                    <li><a href="<%=basePath%>/concurrency"><strong>并发测试</strong></a></li>
                     <li><a>Create by TyCoding</a></li>
                 </ul>
             </div>

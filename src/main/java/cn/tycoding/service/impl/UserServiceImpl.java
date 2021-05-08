@@ -12,7 +12,7 @@ import java.util.List;
  * @author tycoding
  * @date 18-4-7下午9:09
  */
-@Service
+@Service("aaa2")
 public class UserServiceImpl implements UserService {
 
     //注入
@@ -31,8 +31,13 @@ public class UserServiceImpl implements UserService {
         userMapper.saveUpload(s);
     }
 
+    @Override
+    public int updateForBalance(User user) {
+        return userMapper.updateForBalance(user);
+    }
+
     public List<User> findAll() {
-        return null;
+        return userMapper.findAll();
     }
 
     public User findById(Long id) {
