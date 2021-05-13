@@ -1,6 +1,6 @@
-/**
+package Thread; /**
  * @Author: liuyu
- * @Date: 2021/5/8 15:15
+ * @Date: 2021/5/11 15:15
  */
 
 import org.junit.Test;
@@ -12,7 +12,7 @@ import java.util.concurrent.Future;
 
 public class TestCallAble implements Callable{
 
-    volatile int ticketNum = 100;
+    static volatile int ticketNum = 100;
 
     public static void main(String[] args) {
 
@@ -26,26 +26,34 @@ public class TestCallAble implements Callable{
         //创建执行服务
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         TestCallAble testCallAble1 = new TestCallAble();
-        TestCallAble testCallAble2 = new TestCallAble();
-        TestCallAble testCallAble3 = new TestCallAble();
+        System.out.println("线程数:"+Thread.activeCount());
         //提交执行
         Future<Boolean> r1 = executorService.submit(testCallAble1);
-        Future<Boolean> r2 = executorService.submit(testCallAble2);
-        Future<Boolean> r3 = executorService.submit(testCallAble3);
+        Future<Boolean> r2 = executorService.submit(testCallAble1);
+        Future<Boolean> r3 = executorService.submit(testCallAble1);
         //获取结果
         System.out.println("testCallAble1，结果："+r1.get());
         System.out.println("testCallAble1，结果："+r2.get());
         System.out.println("testCallAble1，结果："+r3.get());
         //关闭服务
         executorService.shutdown();
+        System.out.println("线程数:"+Thread.activeCount());
     }
 
     @Override
     public Object call() throws Exception {
         while (ticketNum>0){
-            ticketNum --;
-            System.out.println(Thread.currentThread().getName()+"，抢到了票!"+"剩余票数："+ticketNum);
+            buyTicket();
         }
         return true;
+    }
+
+    private synchronized void buyTicket() throws InterruptedException {
+        if(ticketNum<=0){
+            System.out.println(Thread.currentThread().getName() + "卖完了！");
+            return;
+        }
+        System.out.println(Thread.currentThread().getName()+"，抢到了票!"+"剩余票数："+ --ticketNum);
+        Thread.yield();
     }
 }
