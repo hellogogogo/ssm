@@ -1,4 +1,4 @@
-package lytest.Thread;
+package lytest1911.Thread;
 
 public class TestRunnable implements Runnable{
     //定义退出标志，true会一直执行，false会退出循环

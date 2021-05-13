@@ -1,4 +1,4 @@
-package lytest.Thread;
+package lytest1911.Thread;
 
 public class TestThread extends Thread{
 
