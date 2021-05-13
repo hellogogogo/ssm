@@ -28,9 +28,17 @@ public class TestCallAble implements Callable{
         TestCallAble testCallAble1 = new TestCallAble();
         System.out.println("线程数:"+Thread.activeCount());
         //提交执行
+        //实现1 Future：有返回值（callable）
         Future<Boolean> r1 = executorService.submit(testCallAble1);
         Future<Boolean> r2 = executorService.submit(testCallAble1);
         Future<Boolean> r3 = executorService.submit(testCallAble1);
+        //实现2 execute：无返回值（runnable）
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("方法2");
+            }
+        });
         //获取结果
         System.out.println("testCallAble1，结果："+r1.get());
         System.out.println("testCallAble1，结果："+r2.get());
